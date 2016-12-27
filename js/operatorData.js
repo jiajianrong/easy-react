@@ -7,13 +7,13 @@ import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
 
 /* Components */
-import AppComponent from './components/App/App.js';
+import NavComponent from './components/Nav/Nav.js';
 import TabFirstComponent from './components/TabFirst/index.js';
 
 const routeConfig = [
     {
         path: '/',
-        component: AppComponent,
+        component: NavComponent,
         indexRoute: { component: TabFirstComponent },
         childRoutes: [
             {
