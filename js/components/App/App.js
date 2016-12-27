@@ -27,7 +27,7 @@ class App extends Component {
                 {
                     /*
                     React.Children.map(this.props.children, function (child) {
-                        return <div className="tab-pane">{child}</div>;
+                        return <div className="tab-pane fade in active">{child}</div>;
                     })
                     */
                     this.props.children

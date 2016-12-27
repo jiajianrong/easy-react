@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 class TabForth extends Component{ 
     render() {
         return(
-        <div>I am tab4444</div>
+        <div className="tab-pane fade in active">I am tab4444</div>
         );
     }
 }
