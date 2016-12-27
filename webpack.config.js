@@ -29,11 +29,9 @@ var isProduction = function () {
 };
 
 
-var outputDir = '../dist';
-
-var entryPath = './js/app.js';
-
-var path = require('path');
+//var outputDir = '../dist';
+//var entryPath = './js/app.js';
+//var path      = require('path');
 
 var plugins;
 /*
@@ -43,16 +41,11 @@ var plugins;
 if ( process.env.NODE_ENV === 'production' ) {
 
     plugins = [
-
         new WebpackMd5Hash(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             filename: 'common_[hash].js'
         }),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'common',
-        //     filename: 'common_[chunkhash].js'
-        // }),
         new HtmlWebpackPlugin({
             template: './views/app.html',
             filename: './views/app.html',
@@ -75,20 +68,21 @@ if ( process.env.NODE_ENV === 'production' ) {
 } else {
 
     plugins = [
-
         new WebpackMd5Hash(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             filename: 'common_[hash].js'
         }),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'common',
-        //     filename: 'common_[chunkhash].js'
-        // }),
         new HtmlWebpackPlugin({
             template: './views/app.html',
             filename: './views/app.html',
             chunks: ['main', 'common'],
+            inject: 'body'
+        }),
+        new HtmlWebpackPlugin({
+            template: './views/operatorData.html',
+            filename: './views/operatorData.html',
+            chunks: ['operatorData', 'common'],
             inject: 'body'
         })
     ];
@@ -99,7 +93,8 @@ if ( process.env.NODE_ENV === 'production' ) {
 var config = {
 
     entry: {
-        main: './js/app.js'
+        main: './js/app.js',
+        operatorData: './js/operatorData.js'
     },
     output: {
         path: !isProduction() ? '../dist' : '../../pic2.58.com/finance/58/m/js/new_lottery',
