@@ -7,7 +7,7 @@ import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
 
 /* Components */
-import OperatorData from './pages/OperatorData/OperatorData.js';
+import OperatorData from './containers/OperatorData/OperatorData.js';
 import TabFirstComponent from './components/TabFirst/index.js';
 
 const routeConfig = [

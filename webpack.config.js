@@ -40,30 +40,30 @@ var plugins;
 
 if ( process.env.NODE_ENV === 'production' ) {
 
-    plugins = [
-        new WebpackMd5Hash(),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'common',
-            filename: 'common_[hash].js'
-        }),
-        new HtmlWebpackPlugin({
-            template: './views/app.html',
-            filename: './views/app.html',
-            chunks: ['main', 'common'],
-            inject: 'body'
-        }),
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production")
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            test: /(\.jsx|\.js)$/,
-            compress: {
-                warnings: false
-            }
-        })
-    ];
+//  plugins = [
+//      new WebpackMd5Hash(),
+//      new webpack.optimize.CommonsChunkPlugin({
+//          name: 'common',
+//          filename: 'common_[hash].js'
+//      }),
+//      new HtmlWebpackPlugin({
+//          template: './views/app.html',
+//          filename: './views/app.html',
+//          chunks: ['main', 'common'],
+//          inject: 'body'
+//      }),
+//      new webpack.DefinePlugin({
+//          "process.env": {
+//              NODE_ENV: JSON.stringify("production")
+//          }
+//      }),
+//      new webpack.optimize.UglifyJsPlugin({
+//          test: /(\.jsx|\.js)$/,
+//          compress: {
+//              warnings: false
+//          }
+//      })
+//  ];
 
 } else {
 
