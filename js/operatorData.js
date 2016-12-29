@@ -7,14 +7,14 @@ import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
 
 /* Components */
-import OperatorData from './containers/OperatorData/OperatorData.js';
-import TabFirstComponent from './components/TabFirst/index.js';
+import OperatorData from './containers/OperatorData';
+import OperatorDataCallDetail from './components/OperatorDataCallDetail';
 
 const routeConfig = [
     {
         path: '/',
         component: OperatorData,
-        indexRoute: { component: TabFirstComponent },
+        indexRoute: { component: OperatorDataCallDetail },
         childRoutes: [
             {
                 path: 'callSum',

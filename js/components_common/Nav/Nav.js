@@ -3,7 +3,6 @@ import { Router, Route, Link, IndexLink } from 'react-router';
 import './Nav.css';
 
 
-
 class Nav extends Component {
     
     constructor(props) {

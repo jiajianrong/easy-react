@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Router, Route, Link } from 'react-router';
 import './OperatorData.css';
-import Nav from '../../components_common/Nav/Nav.js';
+import Nav from '../../components_common/Nav';
 
 
 const ROUTE_ARR = [
@@ -23,8 +23,8 @@ class OperatorData extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            /* 页面状态：加载中；正常显示；无数据 */
-            status: STATUS_LOADING
+            /* 页面：加载中；正常显示；无数据 */
+            view: STATUS_LOADING
         };
     }
     
@@ -32,7 +32,7 @@ class OperatorData extends Component {
     componentDidMount() {
         // remote fetch
         setTimeout( () => {
-            this.setState({ status: STATUS_NORMAL })
+            this.setState({ view: STATUS_NORMAL })
         }, 1000 )
     }
     
@@ -40,13 +40,13 @@ class OperatorData extends Component {
     render() {
         let rtn;
         
-        if (this.state.status==STATUS_LOADING)
+        if (this.state.view==STATUS_LOADING)
             rtn = <section className="loading"> loading... </section>
             
-        else if (this.state.status==STATUS_NO_DATA)
+        else if (this.state.view==STATUS_NO_DATA)
             rtn = <section className="no-data"> 该客户未授权,无信息  </section>
             
-        else if (this.state.status==STATUS_NORMAL)
+        else if (this.state.view==STATUS_NORMAL)
             rtn = 
             <section className="OperatorData-P">
                 <Nav routes={ROUTE_ARR} />

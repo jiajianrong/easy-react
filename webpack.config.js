@@ -93,7 +93,7 @@ if ( process.env.NODE_ENV === 'production' ) {
 var config = {
 
     entry: {
-        main: './js/app.js',
+        //main: './js/app.js',
         operatorData: './js/operatorData.js'
     },
     output: {
