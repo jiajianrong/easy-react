@@ -1,3 +1,7 @@
 .OperatorData-P {
-    
+    padding: 20px;
+}
+
+.OperatorData-P .tab-content {
+    padding-top: 30px;
 }

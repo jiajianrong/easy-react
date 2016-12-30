@@ -17,7 +17,7 @@ class Nav extends Component {
     
     render() {
         return(
-            <ul className="nav nav-tabs">
+            <ul className="nav nav-pills nav-justified">
             {
                 this.props.routes.map( item => {
                     return (

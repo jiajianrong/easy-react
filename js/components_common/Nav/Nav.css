@@ -5,7 +5,12 @@
 /*
  覆盖bootstrap默认样式
  * */
-.nav.nav-tabs > li > a.active{
+
+.nav {
+    background: #f6f6f6;
+}
+
+.nav > li > a.active{
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -17,4 +22,7 @@
     border-width: 1px;
     color: #555;
     cursor: default;
+    
+    color: #fff;
+    background-color: #337ab7;
 }
