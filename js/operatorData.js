@@ -18,9 +18,12 @@ const routeConfig = [
         childRoutes: [
             {
                 path: 'callSum',
+                onEnter: function(){
+                    //alert(11)
+                },
                 getComponents(location, callback) {
                     require.ensure([], function (require) {
-                        callback(null, require('./components/TabSecond/index.js'))
+                        callback(null, require('./components/OperatorDataCallSum'))
                     }, 'secondChunk')
                 }
             },
@@ -28,7 +31,7 @@ const routeConfig = [
                 path: 'messages',
                 getComponents(location, callback) {
                     require.ensure([], function (require) {
-                        callback(null, require('./components/TabThird/index.js'))
+                        callback(null, require('./components/OperatorDataMsg'))
                     }, 'thirdChunk')
                 }
             },
@@ -36,7 +39,7 @@ const routeConfig = [
                 path: 'status',
                 getComponents(location, callback) {
                     require.ensure([], function (require) {
-                        callback(null, require('./components/TabForth/index.js'))
+                        callback(null, require('./components/OperatorDataStatus'))
                     }, 'forthChunk')
                 }
             }

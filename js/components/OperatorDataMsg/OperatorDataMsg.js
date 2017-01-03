@@ -6,7 +6,7 @@ const STATUS_NORMAL  = 2;
 const STATUS_NO_DATA = 3;
 
 
-class OperatorDataCallDetail extends Component {
+class OperatorDataMsg extends Component {
     
     constructor(props) {
         super(props);
@@ -44,8 +44,8 @@ class OperatorDataCallDetail extends Component {
                         <caption>基本的表格布局</caption>
                         <thead>
                             <tr>
-                                <th>名称</th>
-                                <th>城市</th>
+                                <th>名称3333</th>
+                                <th>城市333</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,4 +81,4 @@ class OperatorDataCallDetail extends Component {
     }
 }
 
-export default OperatorDataCallDetail;
+export default OperatorDataMsg;

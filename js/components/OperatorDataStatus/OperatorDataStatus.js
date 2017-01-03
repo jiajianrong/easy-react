@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-class TabForth extends Component{ 
+class OperatorDataStatus extends Component{ 
     render() {
         return(
         <div className="tab-pane fade in active">I am tab4444</div>
@@ -7,4 +7,4 @@ class TabForth extends Component{
     }
 }
 
-export default TabForth
+export default OperatorDataStatus

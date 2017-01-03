@@ -7,10 +7,10 @@ class Nav extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {
+        //this.state = {
             /* 页面正常显示下的路由index */
             //actIdx: 1
-        };
+        //};
     }
     
     
@@ -21,9 +21,10 @@ class Nav extends Component {
             {
                 this.props.routes.map( item => {
                     return (
-                    <li> {/*onClick={this.handleClick.bind(this, item.id)} className={ this.state.actIdx==item.id ? 'active': '' } */}
-                        <IndexLink to={item.route}  activeClassName='active' >{item.title}</IndexLink>
-                    </li> )
+                        <li> {/*onClick={this.handleClick.bind(this, item.id)} className={ this.state.actIdx==item.id ? 'active': '' } */}
+                            <IndexLink to={item.route}  activeClassName='active' >{item.title}</IndexLink>
+                        </li> 
+                    )
                 } )
                 
             }
@@ -33,8 +34,9 @@ class Nav extends Component {
     
     
     
-    handleClick(actIdx) {
+    handleClick(route) {
         //this.setState({ actIdx: actIdx })
+        
     }
 }
 

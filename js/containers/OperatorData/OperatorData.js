@@ -12,51 +12,36 @@ const ROUTE_ARR = [
 ];
 
 
-const STATUS_LOADING = 1;
-const STATUS_NORMAL  = 2;
-const STATUS_NO_DATA = 3;
-
-
-
 class OperatorData extends Component {
     
     constructor(props) {
         super(props);
         this.state = {
             /* 页面：加载中；正常显示；无数据 */
-            view: STATUS_LOADING
+            // view: STATUS_LOADING
         };
     }
     
     
     componentDidMount() {
         // remote fetch
-        setTimeout( () => {
-            this.setState({ view: STATUS_NORMAL })
-        }, 1000 )
+        //setTimeout( () => {
+            //this.setState({ view: STATUS_NORMAL })
+        //}, 400 )
     }
     
     
     render() {
-        let rtn;
-        
-        if (this.state.view==STATUS_LOADING)
-            rtn = <section className="loading"> loading... </section>
-            
-        else if (this.state.view==STATUS_NO_DATA)
-            rtn = <section className="no-data"> 该客户未授权,无信息  </section>
-            
-        else if (this.state.view==STATUS_NORMAL)
-            rtn = 
-            <section className="OperatorData-P">
-                <Nav routes={ROUTE_ARR} />
+        return (
+            <section className="container-OperatorData">
+                <Nav routes={ROUTE_ARR}/>
                 
                 <div className="tab-content">
-                    {this.props.children}
+                    {/*this.props.children*/}
+                    {React.cloneElement(this.props.children, {siteData: 111})}
                 </div>
             </section>
-            
-        return rtn;
+        )
     }
 }
 
