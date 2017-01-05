@@ -16,11 +16,13 @@ const routeConfig = [
         component: OperatorData,
         indexRoute: { component: OperatorDataCallDetail },
         childRoutes: [
+            /*{
+                path: ':id',
+                component: OperatorDataCallDetail
+            },*/
             {
                 path: 'callSum',
-                onEnter: function(){
-                    //alert(11)
-                },
+                onEnter: function(){},
                 getComponents(location, callback) {
                     require.ensure([], function (require) {
                         callback(null, require('./components/OperatorDataCallSum'))

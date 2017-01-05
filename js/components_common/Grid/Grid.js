@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import './Grid.css';
 
 
@@ -35,11 +36,12 @@ class Grid extends Component {
         let page = this.props.page;
         
         arr = arr.map( i => {
-            return <li className={i==page?"active":""}><a href="#" onClick={()=>this.clickHandler(i)} >{i}</a></li>
+            //<li className={i==page?"active":""}><Link to={`/${i}`} onClick={()=>this.clickHandler(i)} >{i}</Link></li>
+            return <li className={i==page?"active":""}><a href="javascript:;" onClick={()=>this.clickHandler(i)} >{i}</a></li>
         } )
         
-        arr.push( <li><a href="#" onClick={()=>this.clickHandler(max)} >&raquo;</a></li> )
-        arr.unshift( <li><a href="#" onClick={()=>this.clickHandler(1)}>&laquo;</a></li> )
+        arr.push( <li><a href="javascript:;" onClick={()=>this.clickHandler(max)} >&raquo;</a></li> )
+        arr.unshift( <li><a href="javascript:;" onClick={()=>this.clickHandler(1)}>&laquo;</a></li> )
         
         return arr;
     }

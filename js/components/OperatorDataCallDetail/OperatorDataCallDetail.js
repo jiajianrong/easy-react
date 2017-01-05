@@ -12,59 +12,47 @@ class OperatorDataCallDetail extends Component {
         super(props);
         this.state = {
             view: STATUS_LOADING,
-            
             page: 1,
-            size: 10,
-            title: '通话详单',
+            size: 20,
             head: [ '对方手机号码', '通话地点', '通话起始时间', '通话时长' , '通话类型' , '主叫/被叫' , '通话费用' ],
-            headId: [ 'call_phone', 'call_address', 'call_time', 'call_duration', 'call_type', 'call_style', 'call_cost' ],
-            data: [{ call_phone: '13312345678', call_address: '北京', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                   { call_phone: '13312345678', call_address: '北京', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                   { call_phone: '13312345678', call_address: '北京', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                   { call_phone: '13312345678', call_address: '北京', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                   { call_phone: '13312345678', call_address: '北京', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' }
-            ]
+            headId: [ 'call_phone', 'call_address', 'call_time', 'call_duration', 'call_type', 'call_style', 'call_cost' ]
         };
     }
     
     
     componentDidMount() {
-        // remote fetch
-        setTimeout( () => {
-            this.setState({ 
-                view: STATUS_NORMAL,
-                
-                page: 1,
-                size: 10,
-                total: 101,
-                head: [ '对方手机号码', '通话地点', '通话起始时间', '通话时长' , '通话类型' , '主叫/被叫' , '通话费用' ],
-                headId: [ 'call_phone', 'call_address', 'call_time', 'call_duration', 'call_type', 'call_style', 'call_cost' ],
-                data: [{ call_phone: '13312345678', call_address: '北京1', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京2', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京3', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京4', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京5', call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' }
-                ]
-            })
-        }, 400 )
-        
+        let _page = this.props.params.id;
+        this.removeFetch(_page);
     }
     
     
+    /*componentWillReceiveProps(nextProps) {
+        let beforeId = this.props.params.id,
+            nowId = nextProps.params.id;
+        console.log('will.receive.props',beforeId,nowId)
+        this.removeFetch(nowId);
+    }*/
+    
+    
     onPage(_page, _size) {
-        // remote fetch
+        this.removeFetch(_page, _size);
+    }
+    
+    
+    removeFetch(_page=this.state.page, _size=this.state.size) {
+        
         setTimeout( () => {
             this.setState({ 
                 view: STATUS_NORMAL,
                 
                 page: _page,
-                size: 10,
-                total: 101,
-                data: [{ call_phone: '13312345678', call_address: '北京1'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京2'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京3'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京4'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京5'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' }
+                size: _size,
+                total: Math.floor(Math.random()*80)+20,
+                data: [{ call_phone: '13312345678', call_address: '北京'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
+                       { call_phone: '13312345678', call_address: '北京'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
+                       { call_phone: '13312345678', call_address: '北京'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
+                       { call_phone: '13312345678', call_address: '北京'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
+                       { call_phone: '13312345678', call_address: '北京'+Math.random(), call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' }
                 ]
             })
         }, 400 )
@@ -82,7 +70,6 @@ class OperatorDataCallDetail extends Component {
             _rtn = <section className="no-data"> 该客户未授权,无信息  </section>
             
         else if (this.state.view==STATUS_NORMAL)
-        
             _rtn = (
                 <div className="tab-pane fade in active">
                     <Grid title={this.state.title} head={this.state.head} headId={this.state.headId}
