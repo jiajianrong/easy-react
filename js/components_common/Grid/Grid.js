@@ -11,7 +11,7 @@ class Grid extends Component {
     
     
     renderRow(row) {
-        return this.props.headId.map( item => 
+        return this.props.headKey.map( item => 
             <td> {row[item]} </td> 
         )
     }
@@ -36,8 +36,8 @@ class Grid extends Component {
         let page = this.props.page;
         
         arr = arr.map( i => {
-            //<li className={i==page?"active":""}><Link to={`/${i}`} onClick={()=>this.clickHandler(i)} >{i}</Link></li>
             return <li className={i==page?"active":""}><a href="javascript:;" onClick={()=>this.clickHandler(i)} >{i}</a></li>
+            // return <li className={i==page?"active":""}><Link to={`/${i}`} onClick={()=>this.clickHandler(i)} >{i}</Link></li>
         } )
         
         arr.push( <li><a href="javascript:;" onClick={()=>this.clickHandler(max)} >&raquo;</a></li> )

@@ -5,10 +5,10 @@ import Nav from '../../components_common/Nav';
 
 
 const ROUTE_ARR = [
-    { route: '/',         title: '通话详情'    },
-    { route: '/callSum',  title: '通话数据分析' },
-    { route: '/messages', title: '短信详单'    },
-    { route: '/status',   title: '用户行为检测' }
+    { route: '/callDetail', title: '通话详情'    },
+    { route: '/callSum',    title: '通话数据分析' },
+    { route: '/messages',   title: '短信详单'    },
+    { route: '/status',     title: '用户行为检测' }
 ];
 
 

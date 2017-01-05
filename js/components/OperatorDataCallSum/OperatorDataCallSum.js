@@ -6,6 +6,11 @@ const STATUS_NORMAL  = 2;
 const STATUS_NO_DATA = 3;
 
 
+const GRID_TITLE = "通话数据分析";
+const GRID_HEAD = [ '通话号码', '号码标注', '需求类别', '归属地' , '通话次数' , '呼入次数' , '呼出次数', '最近一周联系次数', '最近一月联系次数', '最近三个月联系次数', '是否全天联系', '关系推测' ];
+const GRID_HEAD_KEY = [ 'phone_num', 'contract_name', 'needs_type', 'user_attribution', 'call_count', 'call_in_count', 'call_out_count', 'contact_one_week', 'contact_one_month', 'contact_three_month', 'contact_all_day', 'relation_speculate' ];
+
+
 class OperatorDataCallSum extends Component {
     
     constructor(props) {
@@ -13,25 +18,23 @@ class OperatorDataCallSum extends Component {
         this.state = {
             view: STATUS_LOADING,
             page: 1,
-            size: 20,
-            head: [ '通话号码', '号码标注', '需求类别', '归属地' , '通话次数' , '呼入次数' , '呼出次数', '最近一周联系次数', '最近一月联系次数', '最近三个月联系次数', '是否全天联系', '关系推测' ],
-            headId: [ 'phone_num', 'contract_name', 'needs_type', 'user_attribution', 'call_count', 'call_in_count', 'call_out_count', 'contact_one_week', 'contact_one_month', 'contact_three_month', 'contact_all_day', 'relation_speculate' ]
+            size: 20
         };
     }
     
     
     componentDidMount() {
-        let _page = this.props.params.id;
+        let _page = this.props.params.page;
         this.removeFetch(_page);
     }
     
     
-    /*componentWillReceiveProps(nextProps) {
-        let beforeId = this.props.params.id,
-            nowId = nextProps.params.id;
-        console.log('will.receive.props',beforeId,nowId)
-        this.removeFetch(nowId);
-    }*/
+    componentWillReceiveProps(nextProps) {
+        let _prevPage = this.props.params.page,
+            _currPage = nextProps.params.page;
+        console.log('will.receive.props',_prevPage,_currPage)
+        this.removeFetch(_currPage);
+    }
     
     
     onPage(_page, _size) {
@@ -88,7 +91,7 @@ class OperatorDataCallSum extends Component {
         else if (this.state.view==STATUS_NORMAL)
             _rtn = (
                 <div className="tab-pane fade in active">
-                    <Grid title={this.state.title} head={this.state.head} headId={this.state.headId}
+                    <Grid title={GRID_TITLE} head={GRID_HEAD} headKey={GRID_HEAD_KEY}
                           total={this.state.total} page={this.state.page} size={this.state.size}
                           data={this.state.data} pageHandler={this.onPage.bind(this)} />
                 </div>
