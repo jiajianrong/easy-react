@@ -16,18 +16,6 @@ class OperatorData extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {
-            /* 页面：加载中；正常显示；无数据 */
-            // view: STATUS_LOADING
-        };
-    }
-    
-    
-    componentDidMount() {
-        // remote fetch
-        //setTimeout( () => {
-            //this.setState({ view: STATUS_NORMAL })
-        //}, 400 )
     }
     
     

@@ -5,7 +5,7 @@ const STATUS_NORMAL  = 2;
 const STATUS_NO_DATA = 3;
 
 
-class OperatorDataStatus extends Component{
+class OperatorDataStatus extends Component {
     
     constructor(props) {
         super(props);
@@ -23,6 +23,8 @@ class OperatorDataStatus extends Component{
     
     
     removeFetch() {
+        // /jxl/phone/call/report/data
+        // userId
         setTimeout( ()=>{
             this.setState({
                 view: STATUS_NORMAL,

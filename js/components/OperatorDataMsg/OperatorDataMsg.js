@@ -43,7 +43,8 @@ class OperatorDataMsg extends Component {
     
     
     removeFetch(_page=this.state.page, _size=this.state.size) {
-        
+        // /jxl/phone/sms/log/list
+        // userId, start(start page), end(row count)
         setTimeout( () => {
             this.setState({ 
                 view: STATUS_NORMAL,
