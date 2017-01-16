@@ -45,7 +45,42 @@ class OperatorDataMsg extends Component {
     removeFetch(_page=this.state.page, _size=this.state.size) {
         // /jxl/phone/sms/log/list
         // userId, start(start page), end(row count)
-        setTimeout( () => {
+        $.ajax({
+        	type: "get",
+        	url: "/jxl/phone/sms/log/list",
+        	cache: false,
+            dataType: 'json',
+            data: {
+                userId: 1,
+                page: 2,
+                count: 20
+            },
+            success: function(data) {
+                this.setState({ 
+                    view: STATUS_NORMAL,
+                    page: _page,
+                    size: _size,
+                    total: data.length,
+                    data: data
+                })
+            }.bind(this),
+            error: function() {
+            },
+            complete: function() {
+            }
+        })
+        /*.done(data=>{
+            console.log(data)
+        })
+        .fail(data=>{
+            console.log(data)
+        })
+        .always(data=>{
+            console.log(data)
+        });*/
+        
+        
+        /*setTimeout( () => {
             this.setState({ 
                 view: STATUS_NORMAL,
                 
@@ -61,7 +96,7 @@ class OperatorDataMsg extends Component {
                        { other_phone: '13312345678', send_time: '下午'+Math.random() }
                 ]
             })
-        }, 400 )
+        }, 400 )*/
     }
     
     

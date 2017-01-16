@@ -129,15 +129,15 @@ var config = {
     resolve: {
         extensions: ['', '.js', '.jsx']
     },
-    // devServer: {
-    //     proxy: {
-    //         '/newspaper/*': {
-    //             target: 'http://10.252.57.49:8081',
-    //             secure: false,
-    //             changeOrigin: true
-    //         }
-    //     }
-    // },
+    devServer: {
+        proxy: {
+            '/jxl/phone/*': {
+                target: 'http://localhost:3000',
+                secure: false,
+                changeOrigin: true
+            }
+        }
+    },
     devtool: false
 
 };
