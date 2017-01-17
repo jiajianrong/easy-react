@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Grid from '../../components_common/Grid';
+import 'whatwg-fetch';
+import { formatUrl, fetchJson } from '../../utils';
 
 const STATUS_LOADING = 1;
 const STATUS_NORMAL  = 2;
@@ -18,7 +20,7 @@ class OperatorDataMsg extends Component {
         this.state = {
             view: STATUS_LOADING,
             page: 1,
-            size: 20
+            size: 15
         };
     }
     
@@ -42,10 +44,29 @@ class OperatorDataMsg extends Component {
     }
     
     
+    /*
+     * /jxl/phone/sms/log/list
+     * userId, start(start page), end(row count)
+     */
     removeFetch(_page=this.state.page, _size=this.state.size) {
-        // /jxl/phone/sms/log/list
-        // userId, start(start page), end(row count)
-        $.ajax({
+        
+        fetchJson('/jxl/phone/sms/log/list', {
+            userId: 'zhangsan',
+            page: _page,
+            count: _size
+            
+        }).then( data => {
+                this.setState({ 
+                    view: STATUS_NORMAL,
+                    page: _page,
+                    size: _size,
+                    total: data.length,
+                    data: data
+                })
+            })
+            .catch( e => console.log(e) );
+        
+        /*$.ajax({
         	type: "get",
         	url: "/jxl/phone/sms/log/list",
         	cache: false,
@@ -68,16 +89,7 @@ class OperatorDataMsg extends Component {
             },
             complete: function() {
             }
-        })
-        /*.done(data=>{
-            console.log(data)
-        })
-        .fail(data=>{
-            console.log(data)
-        })
-        .always(data=>{
-            console.log(data)
-        });*/
+        })*/
         
         
         /*setTimeout( () => {
