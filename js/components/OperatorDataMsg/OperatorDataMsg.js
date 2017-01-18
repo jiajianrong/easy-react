@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Grid from '../../components_common/Grid';
 import 'whatwg-fetch';
-import { formatUrl, fetchJson } from '../../utils';
+import { formatUrl, fetchJson, stringifyDate } from '../../utils';
 
 const STATUS_LOADING = 1;
 const STATUS_NORMAL  = 2;
@@ -10,7 +10,9 @@ const STATUS_NO_DATA = 3;
 
 const GRID_TITLE = "短信详单";
 const GRID_HEAD = [ '对方手机号码', '发送时间' ];
-const GRID_HEAD_KEY = [ 'other_phone', 'send_time' ];
+const GRID_HEAD_KEY = [ 'otherPhone', 'sendTime' ];
+
+const USER_ID = location.search.match(/userId=([^&#$]*)/);
 
 
 class OperatorDataMsg extends Component {
@@ -20,7 +22,7 @@ class OperatorDataMsg extends Component {
         this.state = {
             view: STATUS_LOADING,
             page: 1,
-            size: 15
+            size: 10
         };
     }
     
@@ -44,27 +46,38 @@ class OperatorDataMsg extends Component {
     }
     
     
+    formatData (data) {
+        data.forEach( item => {
+            item.sendTime = stringifyDate( new Date(item.sendTime), '{yyyy}-{MM}-{dd} {HH}:{mm}:{ss}')
+        } )
+    }
+    
+    
     /*
-     * /jxl/phone/sms/log/list
-     * userId, start(start page), end(row count)
+     * /jxl/phone/sms/log/list?userId=223&page=1&count=15
      */
     removeFetch(_page=this.state.page, _size=this.state.size) {
         
         fetchJson('/jxl/phone/sms/log/list', {
-            userId: 'zhangsan',
+            userId: USER_ID,
             page: _page,
             count: _size
-            
-        }).then( data => {
-                this.setState({ 
-                    view: STATUS_NORMAL,
-                    page: _page,
-                    size: _size,
-                    total: data.length,
-                    data: data
-                })
+        })
+        .then( json => {
+            if ( !json || !json.data ) {
+                this.setState({ view: STATUS_NO_DATA });
+                return;
+            }
+            this.formatData(json.data);
+            this.setState({
+                view: STATUS_NORMAL,
+                page: _page,
+                size: _size,
+                total: json.total,
+                data: json.data
             })
-            .catch( e => console.log(e) );
+        })
+        .catch( e => console.log(e) );
         
         /*$.ajax({
         	type: "get",
@@ -99,13 +112,13 @@ class OperatorDataMsg extends Component {
                 page: _page,
                 size: _size,
                 total: Math.floor(Math.random()*80)+20,
-                data: [{ other_phone: '13312345678', send_time: '下午'+Math.random() },
-                       { other_phone: '13312345678', send_time: '下午'+Math.random() },
-                       { other_phone: '13312345678', send_time: '下午'+Math.random() },
-                       { other_phone: '13312345678', send_time: '下午'+Math.random() },
-                       { other_phone: '13312345678', send_time: '下午'+Math.random() },
-                       { other_phone: '13312345678', send_time: '下午'+Math.random() },
-                       { other_phone: '13312345678', send_time: '下午'+Math.random() }
+                data: [{ otherPhone: '13312345678', sendTime: '下午'+Math.random() },
+                       { otherPhone: '13312345678', sendTime: '下午'+Math.random() },
+                       { otherPhone: '13312345678', sendTime: '下午'+Math.random() },
+                       { otherPhone: '13312345678', sendTime: '下午'+Math.random() },
+                       { otherPhone: '13312345678', sendTime: '下午'+Math.random() },
+                       { otherPhone: '13312345678', sendTime: '下午'+Math.random() },
+                       { otherPhone: '13312345678', sendTime: '下午'+Math.random() }
                 ]
             })
         }, 400 )*/
@@ -122,7 +135,9 @@ class OperatorDataMsg extends Component {
         else if (this.state.view==STATUS_NO_DATA)
             _rtn = <section className="no-data"> 该客户未授权,无信息  </section>
             
-        else if (this.state.view==STATUS_NORMAL)
+        else if (this.state.view==STATUS_NORMAL) {
+            
+            
             _rtn = (
                 <div className="tab-pane fade in active">
                     <Grid title={GRID_TITLE} head={GRID_HEAD} headKey={GRID_HEAD_KEY}
@@ -130,7 +145,8 @@ class OperatorDataMsg extends Component {
                           data={this.state.data} pageHandler={this.onPage.bind(this)} />
                 </div>
             )
-            
+        }
+        
         return _rtn;
     }
 }

@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Grid from '../../components_common/Grid';
+import 'whatwg-fetch';
+import { formatUrl, fetchJson } from '../../utils';
 
 const STATUS_LOADING = 1;
 const STATUS_NORMAL  = 2;
@@ -8,7 +10,9 @@ const STATUS_NO_DATA = 3;
 
 const GRID_TITLE = "通话数据分析";
 const GRID_HEAD = [ '通话号码', '号码标注', '需求类别', '归属地' , '通话次数' , '呼入次数' , '呼出次数', '最近一周联系次数', '最近一月联系次数', '最近三个月联系次数', '是否全天联系', '关系推测' ];
-const GRID_HEAD_KEY = [ 'phone_num', 'contract_name', 'needs_type', 'user_attribution', 'call_count', 'call_in_count', 'call_out_count', 'contact_one_week', 'contact_one_month', 'contact_three_month', 'contact_all_day', 'relation_speculate' ];
+const GRID_HEAD_KEY = [ 'phoneNum', 'contractName', 'needsType', 'userAttribution', 'callCount', 'callInCount', 'callOutCount', 'contactOneWeek', 'contactOneMonth', 'contactThreeMonth', 'contactAllDay', 'relationSpeculate' ];
+
+const USER_ID = location.search.match(/userId=([^&#$]*)/);
 
 
 class OperatorDataCallSum extends Component {
@@ -18,7 +22,7 @@ class OperatorDataCallSum extends Component {
         this.state = {
             view: STATUS_LOADING,
             page: 1,
-            size: 20
+            size: 10
         };
     }
     
@@ -42,10 +46,32 @@ class OperatorDataCallSum extends Component {
     }
     
     
+    /*
+     * /jxl/phone/call/analy/list?userId=223&page=1&count=15
+     */
     removeFetch(_page=this.state.page, _size=this.state.size) {
-        // /jxl/phone/call/analy/list
-        // userId, start(start page), end(row count)
-        setTimeout( () => {
+        
+        fetchJson('/jxl/phone/call/analy/list', {
+            userId: USER_ID,
+            page: _page,
+            count: _size
+        })
+        .then( json => {
+            if ( !json || !json.data ) {
+                this.setState({ view: STATUS_NO_DATA });
+                return;
+            }
+            this.setState({ 
+                view: STATUS_NORMAL,
+                page: _page,
+                size: _size,
+                total: json.total,
+                data: json.data
+            })
+        })
+        .catch( e => console.log(e) );
+        
+        /*setTimeout( () => {
             this.setState({ 
                 view: STATUS_NORMAL,
                 
@@ -75,7 +101,7 @@ class OperatorDataCallSum extends Component {
                        
                 ]
             })
-        }, 400 )
+        }, 400 )*/
     }
     
     

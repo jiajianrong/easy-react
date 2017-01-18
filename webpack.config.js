@@ -40,30 +40,36 @@ var plugins;
 
 if ( process.env.NODE_ENV === 'production' ) {
 
-//  plugins = [
-//      new WebpackMd5Hash(),
-//      new webpack.optimize.CommonsChunkPlugin({
-//          name: 'common',
-//          filename: 'common_[hash].js'
-//      }),
-//      new HtmlWebpackPlugin({
-//          template: './views/app.html',
-//          filename: './views/app.html',
-//          chunks: ['main', 'common'],
-//          inject: 'body'
-//      }),
-//      new webpack.DefinePlugin({
-//          "process.env": {
-//              NODE_ENV: JSON.stringify("production")
-//          }
-//      }),
-//      new webpack.optimize.UglifyJsPlugin({
-//          test: /(\.jsx|\.js)$/,
-//          compress: {
-//              warnings: false
-//          }
-//      })
-//  ];
+    plugins = [
+        new WebpackMd5Hash(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'common',
+            filename: 'react/js/common_[hash].js'
+        }),
+        /*new HtmlWebpackPlugin({
+            template: './views/app.html',
+            filename: './views/app.html',
+            chunks: ['main', 'common'],
+            inject: 'body'
+        }),*/
+        new HtmlWebpackPlugin({
+            template: './views/operatorData.html',
+            filename: './react/views/operatorData.html',
+            chunks: ['operatorData', 'common'],
+            inject: 'body'
+        })/*,
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            test: /(\.jsx|\.js)$/,
+            compress: {
+                warnings: false
+            }
+        })*/
+    ];
 
 } else {
 
@@ -71,17 +77,17 @@ if ( process.env.NODE_ENV === 'production' ) {
         new WebpackMd5Hash(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
-            filename: 'common_[hash].js'
+            filename: 'react/js/common_[hash].js'
         }),
-        new HtmlWebpackPlugin({
+        /*new HtmlWebpackPlugin({
             template: './views/app.html',
             filename: './views/app.html',
             chunks: ['main', 'common'],
             inject: 'body'
-        }),
+        }),*/
         new HtmlWebpackPlugin({
             template: './views/operatorData.html',
-            filename: './views/operatorData.html',
+            filename: './react/views/operatorData.html',
             chunks: ['operatorData', 'common'],
             inject: 'body'
         })
@@ -97,10 +103,10 @@ var config = {
         operatorData: './js/operatorData.js'
     },
     output: {
-        path: !isProduction() ? '../dist' : '../../pic2.58.com/finance/58/m/js/new_lottery',
-        publicPath: !isProduction() ? '/' : '//j2.58cdn.com.cn/finance/58/m/js/new_lottery/',
+        path: !isProduction() ? '../app_dist' : '../app_dist',   //'../../pic2.58.com/finance/58/m/js/new_lottery',
+        publicPath: !isProduction() ? '/' : '/',       //'//j2.58cdn.com.cn/finance/58/m/js/new_lottery/',
         chunkFilename: "[name]_[hash].js",
-        filename: '[name]_[hash].js'
+        filename: 'react/js/[name]_[hash].js'
     },
     module: {
         loaders: [
@@ -132,7 +138,8 @@ var config = {
     devServer: {
         proxy: {
             '/jxl/phone/*': {
-                target: 'http://localhost:3000',
+                //target: 'http://localhost:3000',
+                target: 'http://10.252.57.59:8080',
                 secure: false,
                 changeOrigin: true
             }

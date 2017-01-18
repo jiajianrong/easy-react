@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Grid from '../../components_common/Grid';
+import 'whatwg-fetch';
+import { formatUrl, fetchJson } from '../../utils';
 
 const STATUS_LOADING = 1;
 const STATUS_NORMAL  = 2;
@@ -8,7 +10,9 @@ const STATUS_NO_DATA = 3;
 
 const GRID_TITLE = "通话详情";
 const GRID_HEAD = [ '对方手机号码', '通话地点', '通话起始时间', '通话时长' , '通话类型' , '主叫/被叫' , '通话费用' ];
-const GRID_HEAD_KEY = [ 'call_phone', 'call_address', 'call_time', 'call_duration', 'call_type', 'call_style', 'call_cost' ];
+const GRID_HEAD_KEY = [ 'callPhone', 'callAddress', 'callTime', 'callDuration', 'callType', 'callStyle', 'callCost' ];
+
+const USER_ID = location.search.match(/userId=([^&#$]*)/);
 
 
 class OperatorDataCallDetail extends Component {
@@ -18,7 +22,7 @@ class OperatorDataCallDetail extends Component {
         this.state = {
             view: STATUS_LOADING,
             page: 1,
-            size: 20
+            size: 10
         };
     }
     
@@ -42,9 +46,32 @@ class OperatorDataCallDetail extends Component {
     }
     
     
+    /*
+     * /jxl/phone/call/log/list?userId=223&page=1&count=15
+     */
     removeFetch(_page=this.state.page, _size=this.state.size) {
-        // /jxl/phone/call/log/list
-        // userId, start(start page), end(row count)
+        
+        fetchJson('/jxl/phone/call/log/list', {
+            userId: USER_ID,
+            page: _page,
+            count: _size
+        })
+        .then( json => {
+            if ( !json || !json.data ) {
+                this.setState({ view: STATUS_NO_DATA });
+                return;
+            }
+            this.setState({ 
+                view: STATUS_NORMAL,
+                page: _page,
+                size: _size,
+                total: json.total,
+                data: json.data
+            })
+        })
+        .catch( e => console.log(e) );
+        
+        /*
         setTimeout( () => {
             this.setState({ 
                 view: STATUS_NORMAL,
@@ -64,7 +91,7 @@ class OperatorDataCallDetail extends Component {
                          call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' }
                 ]
             })
-        }, 400 )
+        }, 400 )*/
     }
     
     
