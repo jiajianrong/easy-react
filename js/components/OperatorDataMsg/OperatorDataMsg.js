@@ -135,9 +135,7 @@ class OperatorDataMsg extends Component {
         else if (this.state.view==STATUS_NO_DATA)
             _rtn = <section className="no-data"> 该客户未授权,无信息  </section>
             
-        else if (this.state.view==STATUS_NORMAL) {
-            
-            
+        else if (this.state.view==STATUS_NORMAL)
             _rtn = (
                 <div className="tab-pane fade in active">
                     <Grid title={GRID_TITLE} head={GRID_HEAD} headKey={GRID_HEAD_KEY}
@@ -145,7 +143,6 @@ class OperatorDataMsg extends Component {
                           data={this.state.data} pageHandler={this.onPage.bind(this)} />
                 </div>
             )
-        }
         
         return _rtn;
     }

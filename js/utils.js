@@ -20,7 +20,7 @@ function formatUrl(url, params) {
 
 function fetchJson(url, params) {
     let urlFormatted = formatUrl(url, params);
-    return fetch(urlFormatted).then( res => res.json() );
+    return fetch(urlFormatted,{credentials: 'same-origin'}).then( res => res.json() );
 }
 
 
