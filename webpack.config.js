@@ -138,8 +138,8 @@ var config = {
     devServer: {
         proxy: {
             '/jxl/phone/*': {
-                //target: 'http://localhost:3000',
-                target: 'http://10.252.57.59:8080',
+                target: 'http://localhost:3000',
+                //target: 'http://10.252.57.59:8080',
                 secure: false,
                 changeOrigin: true
             }

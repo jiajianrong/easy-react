@@ -1,14 +1,14 @@
 {
-  "name": "new_lottery",
+  "name": "cfq-bms",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set NODE_ENV=production&&webpack-dev-server --hot --host 0.0.0.0 --colors",
-    "build": "NODE_ENV=production webpack --progress --colors",
+    "start": "set NODE_ENV=dev&&webpack-dev-server --hot --host 0.0.0.0 --colors",
+    "build": "set NODE_ENV=production&&webpack --progress --colors",
     "buildw": "set NODE_ENV=production&&webpack --progress --colors&&set NODE_ENV=start"
   },
-  "author": "mxr",
+  "author": "jiajianrong",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
