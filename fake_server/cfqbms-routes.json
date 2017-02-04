@@ -1,0 +1,10 @@
+{
+  "/api/": "/",
+  "/blog/:resource/:id/show": "/:resource/:id",
+  "/blog/:category": "/posts/:id?category=:category",
+  
+  "/jxl/phone/call/report/data": "/jxl_phone_call_report_data",
+  "/jxl/phone/sms/log/list":     "/jxl_phone_sms_log_list",
+  "/jxl/phone/call/analy/list":  "/jxl_phone_call_analy_list",
+  "/jxl/phone/call/log/list":    "/jxl_phone_call_log_list"
+}

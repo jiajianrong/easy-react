@@ -1,0 +1,104 @@
+{
+  "posts": [
+    { "id": 4, "title": "111json-server", "author": "typicode" },
+    { "id": 5, "title": "222json-server", "author": "typicode" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  
+  "jxl_phone_call_report_data": {
+	  "total": 1,
+	  "data": [{
+			"friendCircle": "北京",
+			"useTime": "长期使用",
+			"contactAmount": "数量正常",
+			"callMacao": "无通话记录",
+			"call110": "无通话记录",
+			"call120": "无通话记录",
+			"callLawyer": "无通话记录",
+			"callCourt": "无通话记录",
+			"nightUse": "很少",
+			"callLoan": "很少",
+			"callBank": "很少",
+			"callCredit": "无通话记录"
+        }]
+    },
+    "jxl_phone_sms_log_list": {
+		"total": 100,
+		"data": [
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 },
+			{ "otherPhone": "13312345678", "sendTime": 1484743760638 }
+		]
+	},
+    "jxl_phone_call_analy_list": {
+		"total": 33,
+		"data": [
+			{ "otherPhone": "13312345678", "contractName": "未知", "needsType": "13312345678", 
+			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
+			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
+			  "contactAllDay": "否", "relationSpeculate": "亲属" },
+			{ "otherPhone": "13312345678", "contractName": "未知", "needsType": "13312345678", 
+			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
+			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
+			  "contactAllDay": "否", "relationSpeculate": "亲属" },
+			{ "otherPhone": "13312345678", "contractName": "未知", "needsType": "13312345678", 
+			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
+			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
+			  "contactAllDay": "否", "relationSpeculate": "亲属" },
+			{ "otherPhone": "13312345678", "contractName": "未知", "needsType": "13312345678", 
+			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
+			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
+			  "contactAllDay": "否", "relationSpeculate": "亲属" }
+		 ]
+	},
+	 "jxl_phone_call_log_list": {
+		"total": 51,
+		"data": [
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
+			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
+			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
+			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
+			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
+			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
+			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
+			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
+			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" }
+		 ]
+	 }
+}
+
+
+
+
+
+
+
+
+
+
+
+

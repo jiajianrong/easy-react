@@ -38,7 +38,7 @@ var plugins;
  *  init plugins
  */
 
-if ( process.env.NODE_ENV === 'production' ) {
+if ( isProduction() ) {
 
     plugins = [
         new WebpackMd5Hash(),
@@ -103,7 +103,7 @@ var config = {
         operatorData: './js/operatorData.js'
     },
     output: {
-        path: !isProduction() ? '../app_dist' : '../app_dist',   //'../../pic2.58.com/finance/58/m/js/new_lottery',
+        path: !isProduction() ? '../cfqbms_react_dist' : '../cfqbms_react_dist',   //'../../pic2.58.com/finance/58/m/js/new_lottery',
         publicPath: !isProduction() ? '/' : '/',       //'//j2.58cdn.com.cn/finance/58/m/js/new_lottery/',
         chunkFilename: "[name]_[hash].js",
         filename: 'react/js/[name]_[hash].js'
@@ -137,6 +137,7 @@ var config = {
     },
     devServer: {
         proxy: {
+            // 运营商数据
             '/jxl/phone/*': {
                 target: 'http://localhost:3000',
                 //target: 'http://10.252.57.59:8080',
