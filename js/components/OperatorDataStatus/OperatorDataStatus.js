@@ -6,7 +6,7 @@ const STATUS_LOADING = 1;
 const STATUS_NORMAL  = 2;
 const STATUS_NO_DATA = 3;
 
-const USER_ID = location.search.match(/userId=([^&#$]*)/);
+const USER_ID = location.search.match(/userId=([^&#$]*)/)[1];
 
 
 class OperatorDataStatus extends Component {

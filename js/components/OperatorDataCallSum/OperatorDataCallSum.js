@@ -12,7 +12,7 @@ const GRID_TITLE = "通话数据分析";
 const GRID_HEAD = [ '通话号码', '号码标注', '需求类别', '归属地' , '通话次数' , '呼入次数' , '呼出次数', '最近一周联系次数', '最近一月联系次数', '最近三个月联系次数', '是否全天联系', '关系推测' ];
 const GRID_HEAD_KEY = [ 'phoneNum', 'contractName', 'needsType', 'userAttribution', 'callCount', 'callInCount', 'callOutCount', 'contactOneWeek', 'contactOneMonth', 'contactThreeMonth', 'contactAllDay', 'relationSpeculate' ];
 
-const USER_ID = location.search.match(/userId=([^&#$]*)/);
+const USER_ID = location.search.match(/userId=([^&#$]*)/)[1];
 
 
 class OperatorDataCallSum extends Component {

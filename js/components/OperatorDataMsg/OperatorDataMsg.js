@@ -12,7 +12,7 @@ const GRID_TITLE = "短信详单";
 const GRID_HEAD = [ '对方手机号码', '发送时间' ];
 const GRID_HEAD_KEY = [ 'otherPhone', 'sendTime' ];
 
-const USER_ID = location.search.match(/userId=([^&#$]*)/);
+const USER_ID = location.search.match(/userId=([^&#$]*)/)[1];
 
 
 class OperatorDataMsg extends Component {

@@ -12,7 +12,7 @@ const GRID_TITLE = "通话详情";
 const GRID_HEAD = [ '对方手机号码', '通话地点', '通话起始时间', '通话时长' , '通话类型' , '主叫/被叫' , '通话费用' ];
 const GRID_HEAD_KEY = [ 'callPhone', 'callAddress', 'callTime', 'callDuration', 'callType', 'callStyle', 'callCost' ];
 
-const USER_ID = location.search.match(/userId=([^&#$]*)/);
+const USER_ID = location.search.match(/userId=([^&#$]*)/)[1];
 
 
 class OperatorDataCallDetail extends Component {
