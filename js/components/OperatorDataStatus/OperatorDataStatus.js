@@ -34,7 +34,7 @@ class OperatorDataStatus extends Component {
             count: 10
         })
         .then( json => {
-            if ( !json || !json.data ) {
+            if ( !json || !json.data || !json.data.length ) {
                 this.setState({ view: STATUS_NO_DATA });
                 return;
             }
