@@ -61,6 +61,12 @@ class OperatorDataCallDetail extends Component {
                 this.setState({ view: STATUS_NO_DATA });
                 return;
             }
+            
+            /*
+             * format 通话起始时间和主叫/被叫
+             */
+            this.formatData(json.data);
+            
             this.setState({ 
                 view: STATUS_NORMAL,
                 page: _page,
@@ -79,19 +85,23 @@ class OperatorDataCallDetail extends Component {
                 page: _page,
                 size: _size,
                 total: Math.floor(Math.random()*80)+20,
-                data: [{ call_phone: '13312345678', call_address: '北京'+Math.random(),
-                         call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京'+Math.random(),
-                         call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京'+Math.random(),
-                         call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京'+Math.random(),
-                         call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' },
-                       { call_phone: '13312345678', call_address: '北京'+Math.random(),
-                         call_time: '昨天', call_duration: '5分钟', call_type: '长途', call_style: '主叫', call_cost: '12元' }
+                data: [{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
+                         "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
                 ]
             })
         }, 400 )*/
+    }
+    
+    
+    formatData(data) {
+        data.forEach( item => {
+            item.callTime = new Date(+item.callTime).format('{y}年{M}月{d}日 {H}:{m}:{s}');
+            item.callDuration = +item.callDuration>=60 ? 
+                ( Math.floor(+item.callDuration/60) + '分' + +item.callDuration%60 + '秒' ) :
+                ( item.callDuration + '秒' );
+            item.callStyle = item.callStyle == 1 ? '主叫' : '被叫';
+            item.callCost = item.callCost + '元';
+        } )
     }
     
     

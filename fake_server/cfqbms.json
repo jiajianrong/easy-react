@@ -50,19 +50,19 @@
     "jxl_phone_call_analy_list": {
 		"total": 33,
 		"data": [
-			{ "otherPhone": "13312345678", "contractName": "未知", "needsType": "13312345678", 
+			{ "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
 			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
 			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
 			  "contactAllDay": "否", "relationSpeculate": "亲属" },
-			{ "otherPhone": "13312345678", "contractName": "未知", "needsType": "13312345678", 
+			{ "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
 			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
 			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
 			  "contactAllDay": "否", "relationSpeculate": "亲属" },
-			{ "otherPhone": "13312345678", "contractName": "未知", "needsType": "13312345678", 
+			{ "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
 			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
 			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
 			  "contactAllDay": "否", "relationSpeculate": "亲属" },
-			{ "otherPhone": "13312345678", "contractName": "未知", "needsType": "13312345678", 
+			{ "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
 			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
 			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
 			  "contactAllDay": "否", "relationSpeculate": "亲属" }
@@ -71,22 +71,22 @@
 	 "jxl_phone_call_log_list": {
 		"total": 51,
 		"data": [
-			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
-			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
-			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
-			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
-			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
-			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
-			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
-			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
-			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
-			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
-			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
-			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
-			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
-			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
-			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
-			  "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" }
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "1456828210000", 
+			  "callDuration": "60", "callType": "长途", "callStyle": "1", "callCost": "0.12" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "1456828210000", 
+			  "callDuration": "150", "callType": "长途", "callStyle": "2", "callCost": "0.12" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "1456828210000", 
+			  "callDuration": "500", "callType": "长途", "callStyle": "1", "callCost": "1.2" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "1456828210000", 
+			  "callDuration": "120", "callType": "长途", "callStyle": "1", "callCost": "0.12" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "1456828210000", 
+			  "callDuration": "5", "callType": "长途", "callStyle": "1", "callCost": "12" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "1456828210000", 
+			  "callDuration": "5", "callType": "长途", "callStyle": "1", "callCost": "12" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "1456828210000", 
+			  "callDuration": "5", "callType": "长途", "callStyle": "2", "callCost": "12" },
+			{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "1456828210000", 
+			  "callDuration": "50", "callType": "长途", "callStyle": "1", "callCost": "12" }
 		 ]
 	 }
 }

@@ -78,27 +78,11 @@ class OperatorDataCallSum extends Component {
                 page: _page,
                 size: _size,
                 total: Math.floor(Math.random()*80)+20,
-                data: [{ phone_num: '13312345678', contract_name: '未知', needs_type: '13312345678', 
-                         user_attribution: '北京'+Math.random(), call_count: '5', call_in_count: '4', call_out_count: '1',
-                         contact_one_week: '6', contact_one_month: '12', contact_three_month: '18',
-                         contact_all_day: '否', relation_speculate: '亲属' },
-                       { phone_num: '13312345678', contract_name: '未知', needs_type: '13312345678', 
-                         user_attribution: '北京'+Math.random(), call_count: '5', call_in_count: '4', call_out_count: '1',
-                         contact_one_week: '6', contact_one_month: '12', contact_three_month: '18',
-                         contact_all_day: '否', relation_speculate: '亲属' },
-                       { phone_num: '13312345678', contract_name: '未知', needs_type: '13312345678', 
-                         user_attribution: '北京'+Math.random(), call_count: '5', call_in_count: '4', call_out_count: '1',
-                         contact_one_week: '6', contact_one_month: '12', contact_three_month: '18',
-                         contact_all_day: '否', relation_speculate: '亲属' },
-                       { phone_num: '13312345678', contract_name: '未知', needs_type: '13312345678', 
-                         user_attribution: '北京'+Math.random(), call_count: '5', call_in_count: '4', call_out_count: '1',
-                         contact_one_week: '6', contact_one_month: '12', contact_three_month: '18',
-                         contact_all_day: '否', relation_speculate: '亲属' },
-                       { phone_num: '13312345678', contract_name: '未知', needs_type: '13312345678', 
-                         user_attribution: '北京'+Math.random(), call_count: '5', call_in_count: '4', call_out_count: '1',
-                         contact_one_week: '6', contact_one_month: '12', contact_three_month: '18',
-                         contact_all_day: '否', relation_speculate: '亲属' }
-                       
+                data: [
+                       { "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
+                         "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
+                         "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
+                         "contactAllDay": "否", "relationSpeculate": "亲属" }
                 ]
             })
         }, 400 )*/
