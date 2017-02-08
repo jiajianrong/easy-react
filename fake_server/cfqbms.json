@@ -53,19 +53,19 @@
 			{ "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
 			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
 			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
-			  "contactAllDay": "否", "relationSpeculate": "亲属" },
+			  "contactAllDay": "1", "relationSpeculate": "亲属" },
 			{ "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
 			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
 			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
-			  "contactAllDay": "否", "relationSpeculate": "亲属" },
+			  "contactAllDay": "0", "relationSpeculate": "亲属" },
 			{ "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
 			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
 			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
-			  "contactAllDay": "否", "relationSpeculate": "亲属" },
+			  "contactAllDay": "1", "relationSpeculate": "亲属" },
 			{ "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
 			  "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
 			  "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
-			  "contactAllDay": "否", "relationSpeculate": "亲属" }
+			  "contactAllDay": "1", "relationSpeculate": "亲属" }
 		 ]
 	},
 	 "jxl_phone_call_log_list": {

@@ -61,6 +61,12 @@ class OperatorDataCallSum extends Component {
                 this.setState({ view: STATUS_NO_DATA });
                 return;
             }
+            
+            /*
+             * format
+             */
+            this.formatData(json.data);
+            
             this.setState({ 
                 view: STATUS_NORMAL,
                 page: _page,
@@ -82,10 +88,17 @@ class OperatorDataCallSum extends Component {
                        { "phoneNum": "13312345678", "contractName": "未知", "needsType": "13312345678", 
                          "userAttribution": "北京", "callCount": "5", "callInCount": "4", "callOutCount": "1",
                          "contactOneWeek": "6", "contactOneMonth": "12", "contactThreeMonth": "18",
-                         "contactAllDay": "否", "relationSpeculate": "亲属" }
+                         "contactAllDay": "1", "relationSpeculate": "亲属" }
                 ]
             })
         }, 400 )*/
+    }
+    
+    
+    formatData(data) {
+        data.forEach( item => {
+            item.contactAllDay = item.contactAllDay == 1 ? '是' : '否';
+        } )
     }
     
     

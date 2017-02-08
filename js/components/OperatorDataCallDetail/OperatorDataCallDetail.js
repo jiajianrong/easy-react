@@ -63,7 +63,7 @@ class OperatorDataCallDetail extends Component {
             }
             
             /*
-             * format 通话起始时间和主叫/被叫
+             * format
              */
             this.formatData(json.data);
             
@@ -85,8 +85,8 @@ class OperatorDataCallDetail extends Component {
                 page: _page,
                 size: _size,
                 total: Math.floor(Math.random()*80)+20,
-                data: [{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "昨天", 
-                         "callDuration": "5分钟", "callType": "长途", "callStyle": "主叫", "callCost": "12元" },
+                data: [{ "callPhone": "13312345678", "callAddress": "北京", "callTime": "1456828210000", 
+                         "callDuration": "50", "callType": "长途", "callStyle": "1", "callCost": "1.2" },
                 ]
             })
         }, 400 )*/
